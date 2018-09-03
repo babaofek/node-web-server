@@ -29,15 +29,15 @@ hbs.registerHelper('screamIt', (text) =>{
     return text.toUpperCase();
 })
 
+// app.use((req, res, next) => {
+//     res.render('maintenance.hbs');
+// });
+
 app.get('/', (req, res) => {
     res.render('home.hbs', {
         pageTitle: 'Home Page',
         welcomeMessage: 'Welcome to my first webServer!'
     });
-});
-
-app.use((req, res, next) => {
-    res.render('maintenance.hbs');
 });
 
 app.get('/bad', (req, res) => {
@@ -51,6 +51,13 @@ app.get('/about', (req, res) => {
         pageTitle: 'About Page'
     });
 });
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Projects Page'
+    });
+});
+
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
